@@ -24,7 +24,9 @@ namespace ConsoleAppDAOMVCSingletonSolid
             }
             catch (ApplicationException e)
             {
+                Console.WriteLine("------------------------------");
                 Console.WriteLine("Error al listar clientes: " + e.Message);
+                Console.WriteLine("------------------------------");
             }
         }
 
@@ -32,41 +34,50 @@ namespace ConsoleAppDAOMVCSingletonSolid
         {
             try
             {
-                Empleado parqueadero = empleadoService.ObtenerEmpleadoPorId(id);
+                Empleado cliente = empleadoService.ObtenerEmpleadoPorId(id);
 
-                if (parqueadero != null)
+                if (cliente != null)
                 {
-                    vista.MostrarEmpleado(parqueadero);
+                    vista.MostrarEmpleado(cliente);
                 }
                 else
                 {
+                    Console.WriteLine("------------------------------");
                     Console.WriteLine($"No se encontró ningún cliente con el ID {id}.");
+                    Console.WriteLine("------------------------------");
                 }
             }
             catch (ApplicationException e)
             {
+                Console.WriteLine("------------------------------");
                 Console.WriteLine("Error al obtener el cliente: " + e.Message);
+                Console.WriteLine("------------------------------");
             }
         }
 
-        public void RegistrarEmpleado(Empleado parqueadero)
+        public void RegistrarEmpleado(Empleado cliente)
         {
             try
             {
-                if (empleadoService.RegistrarEmpleado(parqueadero))
+                if (empleadoService.RegistrarEmpleado(cliente))
                 {
                     Console.WriteLine("---------------------");
-                    Console.WriteLine("--> Registro exitoso: " + parqueadero.id);
-                    vista.MostrarEmpleado(parqueadero);
+                    Console.WriteLine("--> Registro exitoso: " + cliente.id);
+                    vista.MostrarEmpleado(cliente);
+                    Console.WriteLine("------------------------------");
                 }
                 else
                 {
+                    Console.WriteLine("------------------------------");
                     Console.WriteLine("Error al registrar el cliente.");
+                    Console.WriteLine("------------------------------");
                 }
             }
             catch (ApplicationException e)
             {
+                Console.WriteLine("------------------------------");
                 Console.WriteLine("Error al registrar el cliente: " + e.Message);
+                Console.WriteLine("------------------------------");
             }
         }
 
@@ -94,21 +105,29 @@ namespace ConsoleAppDAOMVCSingletonSolid
 
                     if (empleadoService.ActualizarEmpleado(empleadoExistente))
                     {
+                    Console.WriteLine("------------------------------");
                         Console.WriteLine("--> Actualización exitosa");
+                    Console.WriteLine("------------------------------");
                     }
                     else
                     {
+                    Console.WriteLine("------------------------------");
                         Console.WriteLine("Error al actualizar el empleado.");
+                    Console.WriteLine("------------------------------");
                     }
                 }
                 else
                 {
+                    Console.WriteLine("------------------------------");
                     Console.WriteLine($"No se encontró ningún empleado con el ID {id}.");
+                    Console.WriteLine("------------------------------");
                 }
             }
             catch (ApplicationException e)
             {
+                    Console.WriteLine("------------------------------");
                 Console.WriteLine("Error al actualizar el empleado: " + e.Message);
+                    Console.WriteLine("------------------------------");
             }
         }
 
@@ -122,21 +141,29 @@ namespace ConsoleAppDAOMVCSingletonSolid
                 {
                     if (empleadoService.EliminarEmpleado(id))
                     {
+                    Console.WriteLine("------------------------------");
                         Console.WriteLine("Empleado eliminado: " + empleadoAEliminar.id);
+                    Console.WriteLine("------------------------------");
                     }
                     else
                     {
+                    Console.WriteLine("------------------------------");
                         Console.WriteLine("Error al eliminar el empleado.");
+                    Console.WriteLine("------------------------------");
                     }
                 }
                 else
                 {
+                    Console.WriteLine("------------------------------");
                     Console.WriteLine($"No se encontró ningún empleado con el ID {id}.");
+                    Console.WriteLine("------------------------------");
                 }
             }
             catch (ApplicationException e)
             {
+                    Console.WriteLine("------------------------------");
                 Console.WriteLine("Error al eliminar el empleado: " + e.Message);
+                    Console.WriteLine("------------------------------");
             }
         }
 

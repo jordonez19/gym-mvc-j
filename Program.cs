@@ -18,10 +18,11 @@ namespace ConsoleAppDAOMVCSingletonSolid
             while (true)
             {
                 Console.WriteLine("");
-                Console.WriteLine("         ////////////////////");
-                Console.WriteLine("         CITY PARKING PENAGOS\n");
-                Console.WriteLine("\nPor favor digite el numero de la opción deseada:\n");
-                Console.WriteLine("[1] Lista clientes\n[2] Ingresar Nuevo\n[3] Actualizar\n[4] Eliminar\n[5] Total ingresos \n[6] Ayuda: \n[7] Salir del programa ");
+                Console.WriteLine("----------------------------------------");
+                Console.WriteLine("                   GYM                  ");
+                Console.WriteLine("----------------------------------------");
+                Console.WriteLine("\neSCOGE UNA DE LAS SIGUIENTES OPCIONES:\n");
+                Console.WriteLine("[1] Todos los clientes \n[2] Ingresar Nuevo\n[3] Actualizar\n[4] Eliminar\n[5] Ingresos \n[6] Ayuda: \n[7] Salir del programa ");
 
                 action = Console.ReadLine()?.ToUpper();
 
@@ -40,10 +41,10 @@ namespace ConsoleAppDAOMVCSingletonSolid
                                 break;
                             case "3":
                                 id = InputId();
-                                Console.WriteLine("-------------------");
+                                Console.WriteLine("----------------------------------------");
                                 controller.VerEmpleado(id);
                                 Console.WriteLine("------------Datos originales------------");
-                                Console.WriteLine("parqueadero");
+                                Console.WriteLine("cliente");
                                 Console.WriteLine("Ingrese los nuevos datos");
 
                                 string nuevoNombre = InputNombre();
@@ -87,6 +88,7 @@ namespace ConsoleAppDAOMVCSingletonSolid
 
         private static void MostrarAyuda()
         {
+            Console.WriteLine("----------------------------------------");
             Console.WriteLine("****MENU DE AYUDA*****\n");
             Console.WriteLine("Opciones disponibles:\n");
             Console.WriteLine("[1] Listar:          Muestra la lista de clientes activos.");
@@ -96,12 +98,13 @@ namespace ConsoleAppDAOMVCSingletonSolid
             Console.WriteLine("[5] Total Ingresos:  Muestra el total de ingresos mensual y neto");
             Console.WriteLine("[6] Ayuda:           Muestra a detalle cada opcion.");
             Console.WriteLine("[7] Salir:           Sale del programa.\n");
+            Console.WriteLine("----------------------------------------");
         }
 
-        
+
         private static Empleado InputEmpleado()
         {
-            int id = 0; // Asigna un valor por defecto al id, ya que no se proporciona en la entrada.
+            int id = 0; 
             string nombre = InputNombre();
             string apellido = InputApellido();
             int cedula = InputCedula();
